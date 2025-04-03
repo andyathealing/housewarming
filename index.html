@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arc Place Movie Night</title>
+    <!-- Fonts that evoke 60s movie poster aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bebas+Neue&family=Special+Elite&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #1a0d00; /* Dark brown/sepia background */
+            color: #fff9e6; /* Off-white, aged paper look */
+            line-height: 1.6;
+            padding: 20px;
+            background-image: url('https://www.transparenttextures.com/patterns/worn-dots.png');
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+            border: 8px solid #e6b800; /* Gold border */
+            background-color: rgba(26, 13, 0, 0.7);
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            color: #e6b800; /* Gold */
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 6px;
+            text-shadow: 4px 4px 0px #8b0000; /* Dark red shadow */
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #ff6b6b; /* Vintage red */
+            margin-bottom: 20px;
+            font-family: 'Special Elite', cursive;
+            letter-spacing: 2px;
+        }
+
+        .movie-card {
+            background-color: #2a1a00; /* Darker brown */
+            border-radius: 0; /* Square corners for vintage look */
+            overflow: hidden;
+            box-shadow: 8px 8px 0px rgba(139, 0, 0, 0.7); /* Offset shadow */
+            margin-bottom: 40px;
+            border: 2px solid #e6b800; /* Gold border */
+            position: relative;
+        }
+
+        .movie-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1));
+            pointer-events: none;
+        }
+
+        .movie-poster {
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .movie-poster::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255,107,107,0.15), rgba(230,184,0,0.15));
+            pointer-events: none;
+        }
+
+        .movie-poster img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: sepia(30%);
+        }
+
+        .movie-info {
+            padding: 25px;
+            position: relative;
+            border-top: 3px dashed #e6b800; /* Gold dashed border */
+        }
+
+        .movie-title {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-family: 'Oswald', sans-serif;
+            color: #ff6b6b; /* Vintage red */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .movie-details {
+            margin-top: 15px;
+            color: #fff9e6; /* Off-white text */
+            font-family: 'Special Elite', cursive;
+        }
+
+        .screening-info {
+            display: flex;
+            margin-bottom: 12px;
+            align-items: center;
+        }
+
+        .icon {
+            margin-right: 15px;
+            font-size: 1.3rem;
+            color: #e6b800; /* Gold */
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            color: #e6b800; /* Gold */
+            font-size: 1rem;
+            font-family: 'Special Elite', cursive;
+            border-top: 4px solid #8b0000; /* Dark red border */
+        }
+
+        @media (min-width: 768px) {
+            .movie-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 40px;
+            }
+            
+            .movie-card {
+                margin-bottom: 0;
+                transform: rotate(-1deg);
+                transition: transform 0.3s ease;
+            }
+            
+            .movie-card:nth-child(even) {
+                transform: rotate(1deg);
+            }
+            
+            .movie-card:hover {
+                transform: rotate(0) scale(1.03);
+                z-index: 1;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .movie-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Arc Place Movie Night</h1>
+            <p class="subtitle">2025-04-21 ~ 2025-04-25</p>
+        </header>
+
+        <div class="movie-grid">
+            <!-- Monday Movie -->
+            <div class="movie-card">
+                <div class="movie-poster">
+                    <img src="https://m.media-amazon.com/images/M/MV5BOGUyZDUxZjEtMmIzMC00MzlmLTg4MGItZWJmMzBhZjE0Mjc1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg" alt="The Social Network Movie Poster">
+                </div>
+                <div class="movie-info">
+                    <h2 class="movie-title">The Social Network</h2>
+                    <div class="movie-details">
+                        <div class="screening-info">
+                            <span class="icon">📅</span>
+                            <span>Monday, Apr 7</span>
+                        </div>
+                        <div class="screening-info">
+                            <span class="icon">🕡</span>
+                            <span>6:30 PM</span>
+                        </div>
+                        <div class="screening-info">
+                            <span class="icon">📍</span>
+                            <span>Main Conference Room, 3rd Floor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tuesday Movie -->
+            <div class="movie-card">
+                <div class="movie-poster">
+                    <img src="https://m.media-amazon.com/images/I/51dsqBM68cL._AC_UF894,1000_QL80_.jpg" alt="Birdman Movie Poster">
+                </div>
+                <div class="movie-info">
+                    <h2 class="movie-title">Birdman</h2>
+                    <div class="movie-details">
+                        <div class="screening-info">
+                            <span class="icon">📅</span>
+                            <span>Tuesday, Apr 8</span>
+                        </div>
+                        <div class="screening-info">
+                            <span class="icon">🕡</span>
+                            <span>6:30 PM</span>
+                        </div>
+                        <div class="screening-info">
+                            <span class="icon">📍</span>
+                            <span>Main Conference Room, 3rd Floor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wednesday Movie -->
+            <div class="movie-card">
+                <div class="movie-poster">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMzg2Mzg4YmUtNDdkNy00NWY1LWE3NmEtZWMwNGNlMzE5YzU3XkEyXkFqcGdeQXVyMjA5MTIzMjQ@._V1_.jpg" alt="Hidden Figures Movie Poster">
+                </div>
+                <div class="movie-info">
+                    <h2 class="movie-title">Hidden Figures</h2>
+                    <div class="movie-details">
+                        <div class="screening-info">
+                            <span class="icon">📅</span>
+                            <span>Wednesday, Apr 9</span>
+                        </div>
+                        <div class="screening-info">
+                            <span class="icon">🕡</span>
+                            <span>6:30 PM</span>
+                        </div>
+                        <div class="screening-info">
+                            <span class="icon">📍</span>
+                            <span>Main Conference Room, 3rd Floor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thursday Movie -->
+            <div class="movie-card">
+                <div class="movie-poster">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMTUxNzc0OTIxMV5BMl5BanBnXkFtZTgwNDI3NzU2NDE@._V1_.jpg" alt="Ex Machina Movie Poster">
+                </div>
+                <div class="movie-info">
+                    <h2 class="movie-title">Ex Machina</h2>
+                    <div class="movie-details">
+                        <div class="screening-info">
+                            <span class="icon">📅</span>
+                            <span>Thursday, Apr 10</span>
+                        </div>
+                        <div class="screening-info">
+                            <span class="icon">🕡</span>
+                            <span>6:30 PM</span>
+                        </div>
+                        <div class="screening-info">
+                            <span class="icon">📍</span>
+                            <span>Main Conference Room, 3rd Floor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Friday Movie -->
+            <div class="movie-card">
+                <div class="movie-poster">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMjAxOTU3Mzc1M15BMl5BanBnXkFtZTcwMzk1ODUzNg@@._V1_.jpg" alt="Moneyball Movie Poster">
+                </div>
+                <div class="movie-info">
+                    <h2 class="movie-title">Moneyball</h2>
+                    <div class="movie-details">
+                        <div class="screening-info">
+                            <span class="icon">📅</span>
+                            <span>Friday, Apr 11</span>
+                        </div>
+                        <div class="screening-info">
+                            <span class="icon">🕡</span>
+                            <span>6:30 PM</span>
+                        </div>
+                        <div class="screening-info">
+                            <span class="icon">📍</span>
+                            <span>Main Conference Room, 3rd Floor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>For questions or assistance, please contact the Events Team</p>
+        </footer>
+    </div>
+</body>
+</html>

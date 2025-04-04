@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Jua&family=Lilita+One&family=Orbit&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#14181c">
+    <title>FilmNight - Your Movie Experience</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #14181c;
+            color: #fff;
+            line-height: 1.5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo-image {
+            height: 50px;
+            width: auto;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 70px 20px;
+        }
+        
+        .hero h1 {
+            font-size: 80px;
+            font-weight: normal;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0.8;
+        }
+        
+        /* Movie Grid */
+        .movie-section {
+            padding: 40px 0;
+        }
+        
+        .section-title {
+            font-family: "gowun-batang-regular";
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+        
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+        
+        .movie-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .movie-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .movie-poster {
+            width: 100%;
+            aspect-ratio: 2/3;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        
+        .movie-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(20, 24, 28, 0.8);
+            padding: 12px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .movie-card:hover .movie-info {
+            opacity: 1;
+        }
+        
+        .movie-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .movie-details {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        .screening-time {
+            display: inline-block;
+            margin-top: 5px;
+            background-color: #00e054;
+            color: #14181c;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .snacks {
+            display: inline-block;
+            margin-top: 5px;
+            margin-left: 5px;
+            background-color: #ff8000;
+            color: #14181c;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 40px;
+            background-color: #1c2228;
+        }
+        
+        .copyright {
+            font-size: 14px;
+            opacity: 0.6;
+        }
+
+        .lilita-one-regular {
+            font-family: "Lilita One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .orbit-regular {
+              font-family: "Orbit", sans-serif;
+              font-weight: 400;
+              font-style: normal;
+        }
+
+        .gowun-batang-regular {
+              font-family: "Gowun Batang", serif;
+              font-weight: 400;
+              font-style: normal;
+        }
+
+        .jua-regular {
+              font-family: "Jua", sans-serif;
+              font-weight: 400;
+              font-style: normal;
+        }
+
+        
+        
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+            .movie-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .hero h1 {
+                font-size: 60px; /* Increased from 36px */
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .movie-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .hero {
+                padding: 40px 15px;
+            }
+            
+            .hero h1 {
+                font-size: 48px; /* Increased from 28px */
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .movie-info {
+                opacity: 1;
+                padding: 8px;
+            }
+            
+            .movie-title {
+                font-size: 12px;
+            }
+            
+            .movie-details, .screening-time, .snacks {
+                font-size: 10px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .movie-grid {
+                grid-template-columns: 1fr;
+                max-width: 240px;
+                margin: 0 auto;
+            }
+            
+            .hero h1 {
+                font-size: 42px; /* Increased from 24px */
+            }
+            
+            .logo-image {
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="https://media.licdn.com/dms/image/v2/D560BAQH85nfq-gbjKA/company-logo_200_200/B56ZVBqAesGUAI-/0/1740563286332/healingpaper_logo?e=2147483647&v=beta&t=FDzK4YN7AIgcOzBNTpwLKlhgJblYK3LDv8OFqVINXAs" alt="Company Logo" class="logo-image">
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1 class = "lilita-one-regular">Arc Place<br>Mov(i)e Week</h1>
+            <p class="jua-regular">🏢 아크에 왔노라, 영화를 보았노라 🍿<br><br>"영화가 맛있고 저녁이 재밌어요"<br>매일 19시 @lounge</p>
+        </div>
+    </section>
+    
+    <section class="movie-section">
+        <div class="container">
+            <h2 class="section-title">상영 예정작</h2>
+            <div class="movie-grid">
+                <!-- Movie 1 -->
+                <div class="movie-card">
+                    <img src="/api/placeholder/240/360" alt="Movie poster" class="movie-poster">
+                    <div class="movie-info">
+                        <div class="movie-title">Inception</div>
+                        <div class="movie-details">2010 | Christopher Nolan</div>
+                        <div class="screening-time">7:30 PM</div>
+                        <div class="snacks">Popcorn & Soda</div>
+                    </div>
+                </div>
+                
+                <!-- Movie 2 -->
+                <div class="movie-card">
+                    <img src="/api/placeholder/240/360" alt="Movie poster" class="movie-poster">
+                    <div class="movie-info">
+                        <div class="movie-title">The Grand Budapest Hotel</div>
+                        <div class="movie-details">2014 | Wes Anderson</div>
+                        <div class="screening-time">6:45 PM</div>
+                        <div class="snacks">Wine & Cheese</div>
+                    </div>
+                </div>
+                
+                <!-- Movie 3 -->
+                <div class="movie-card">
+                    <img src="/api/placeholder/240/360" alt="Movie poster" class="movie-poster">
+                    <div class="movie-info">
+                        <div class="movie-title">Parasite</div>
+                        <div class="movie-details">2019 | Bong Joon-ho</div>
+                        <div class="screening-time">8:15 PM</div>
+                        <div class="snacks">Korean Cuisine</div>
+                    </div>
+                </div>
+                
+                <!-- Movie 4 -->
+                <div class="movie-card">
+                    <img src="/api/placeholder/240/360" alt="Movie poster" class="movie-poster">
+                    <div class="movie-info">
+                        <div class="movie-title">Everything Everywhere All at Once</div>
+                        <div class="movie-details">2022 | Daniels</div>
+                        <div class="screening-time">9:00 PM</div>
+                        <div class="snacks">Bagels & Hot Dogs</div>
+                    </div>
+                </div>
+                
+                <!-- Movie 5 -->
+                <div class="movie-card">
+                    <img src="/api/placeholder/240/360" alt="Movie poster" class="movie-poster">
+                    <div class="movie-info">
+                        <div class="movie-title">The Shawshank Redemption</div>
+                        <div class="movie-details">1994 | Frank Darabont</div>
+                        <div class="screening-time">7:00 PM</div>
+                        <div class="snacks">Nachos & Beer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="copyright"><link href="tf-행사-2025-이사-하우스워밍">tf-행사-2025-이사-하우스워밍 <link> </div>
+        </div>
+    </footer>
+</body>
+</html>

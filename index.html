@@ -114,6 +114,7 @@
             overflow: hidden;
             border-radius: 5px;
             transition: transform 0.3s;
+            height: 100%; /* or min-height: 300px; */
         }
         
         .movie-card:hover {
@@ -125,6 +126,8 @@
             aspect-ratio: 2/3;
             object-fit: cover;
             border-radius: 5px;
+            /* NEW: Add a min-height if needed */
+            max-height: 450px;
         }
         
         .movie-info {
